@@ -11,6 +11,12 @@ public partial class Player : CharacterBody2D
 
 	[Export]
 	public int friction { get; set; } = 30;
+	private AnimatedSprite2D playerAnimation;
+
+	public override void _Ready()
+	{
+		playerAnimation = GetNode<AnimatedSprite2D>("Farmer");
+	}
 
 	public void GetInput()
 	{
@@ -27,5 +33,14 @@ public partial class Player : CharacterBody2D
 		base._PhysicsProcess(delta);
 		GetInput();
 		MoveAndSlide();
+		if (Velocity.Length() > 0)
+		{
+			var ap = GetNode("Farmer") as AnimationPlayer;
+			ap.Play("idle");
+		}
+		else
+		{
+			playerAnimation.Play("idle");
+		}
 	}
 }
