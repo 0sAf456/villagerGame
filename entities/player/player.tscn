@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://w2qud64ugx33"]
+[gd_scene load_steps=27 format=3 uid="uid://w2qud64ugx33"]
 
 [ext_resource type="Texture2D" uid="uid://d21tu341pkwlj" path="res://assets/player/Player_Idle_Right_Default.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://0dmotgh2bwi2" path="res://entities/player/Player.cs" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://b8rlb2e66d34o" path="res://Player_Movement.gd" id="1_abrql"]
+[ext_resource type="Texture2D" uid="uid://b5cby1206jxad" path="res://assets/player/Player_Walking_Right_Default.png" id="3_sglur"]
+[ext_resource type="Texture2D" uid="uid://cmrjhp2t4yh24" path="res://assets/Weapon/sword.png" id="4_bls4j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -51,6 +53,38 @@ region = Rect2(160, 0, 16, 16)
 atlas = ExtResource("1_4flbx")
 region = Rect2(176, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bls4j"]
+atlas = ExtResource("3_sglur")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
+atlas = ExtResource("3_sglur")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fjmc"]
+atlas = ExtResource("3_sglur")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiwj3"]
+atlas = ExtResource("3_sglur")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26q78"]
+atlas = ExtResource("3_sglur")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bectd"]
+atlas = ExtResource("3_sglur")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvtmh"]
+atlas = ExtResource("3_sglur")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7thud"]
+atlas = ExtResource("3_sglur")
+region = Rect2(112, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bwjto"]
 animations = [{
 "frames": [{
@@ -93,24 +127,56 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_bls4j")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_fkugw")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_8fjmc")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_qiwj3")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_26q78")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_bectd")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_wvtmh")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_7thud")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
+size = Vector2(8, 16)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_onrkg")
+script = ExtResource("1_abrql")
 
-[node name="Farmer" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bwjto")
-animation = &"idle"
-frame = 5
-frame_progress = 0.377383
-
-[node name="Camera2D" type="Camera2D" parent="Farmer"]
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
+animation = &"run"
+frame_progress = 0.0368598
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
-shape = SubResource("CircleShape2D_4flbx")
+shape = SubResource("RectangleShape2D_abrql")
+
+[node name="ObjectRotator" type="Node2D" parent="."]
+
+[node name="Weapon" type="Sprite2D" parent="ObjectRotator"]
+position = Vector2(9.105, 0)
+rotation = 0.644027
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bls4j")

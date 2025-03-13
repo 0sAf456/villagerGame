@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpepso0fv3jnm"
-path="res://.godot/imported/Grey_Room.png-5b194b000c1514606306f1f65ac47e4f.ctex"
+uid="uid://cmrjhp2t4yh24"
+path="res://.godot/imported/sword.png-d4a8272ccbf24bf42c5505d8577c2c44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/White_Room/Grey_Room.png"
-dest_files=["res://.godot/imported/Grey_Room.png-5b194b000c1514606306f1f65ac47e4f.ctex"]
+source_file="res://assets/Weapon/sword.png"
+dest_files=["res://.godot/imported/sword.png-d4a8272ccbf24bf42c5505d8577c2c44.ctex"]
 
 [params]
 
