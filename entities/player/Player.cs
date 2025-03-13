@@ -4,7 +4,7 @@ using Godot;
 public partial class Player : CharacterBody2D
 {
 	[Export]
-	public float maxSpeed { get; set; } = 400;
+	public float maxSpeed { get; set; } = 100;
 
 	[Export]
 	public float acceleration { get; set; } = 20;
