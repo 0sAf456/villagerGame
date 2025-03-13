@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://w2qud64ugx33"]
 
-[ext_resource type="Texture2D" uid="uid://d21tu341pkwlj" path="res://entities/player/Player_Idle_Right_Default.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://d21tu341pkwlj" path="res://assets/player/Player_Idle_Right_Default.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://0dmotgh2bwi2" path="res://entities/player/Player.cs" id="1_onrkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
@@ -106,6 +106,10 @@ sprite_frames = SubResource("SpriteFrames_bwjto")
 animation = &"idle"
 frame = 5
 frame_progress = 0.377383
+
+[node name="Camera2D" type="Camera2D" parent="Farmer"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)

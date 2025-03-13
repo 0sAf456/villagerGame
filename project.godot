@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="villagerGame"
+run/main_scene="uid://cus06s4k1e1cp"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
