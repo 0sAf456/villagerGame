@@ -63,16 +63,14 @@ position = Vector2(30, 21)
 tile_map_data = PackedByteArray("AAALAAIAAAAAAAAAAAAKAAAAAAAAAAAAAAAFAP//AAAAAAAAAAAMAP7/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_ugwxx")
 
-[node name="Player" parent="." instance=ExtResource("1_e32lr")]
-position = Vector2(49, -6)
-collision_mask = 3
+[node name="Player" parent="Room" instance=ExtResource("1_e32lr")]
+position = Vector2(79, 15)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Room/Player"]
 position = Vector2(-3, 9)
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
-[node name="Enemy" parent="." instance=ExtResource("4_i5nq2")]
-position = Vector2(178, -74)
-collision_layer = 2
-collision_mask = 2
+[node name="Enemy" parent="Room" instance=ExtResource("4_i5nq2")]
+position = Vector2(208, -53)
+collision_mask = 3
