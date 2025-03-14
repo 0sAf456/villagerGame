@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
 @export
-var Max_Speed = 80
+var Max_Speed = 60
 @export
 var Acceleration = 20
-@export
-var Friction = 30
+var Health = 10
 var mouse_position
 
 @onready var player_animation = $AnimatedSprite2D
@@ -39,3 +38,8 @@ func get_input():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		weapon.attack()
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.name == "hitBox":
+		print_debug(area.get_parent().name)
