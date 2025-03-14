@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpepso0fv3jnm"
-path="res://.godot/imported/Grey_Room.png-5b194b000c1514606306f1f65ac47e4f.ctex"
+uid="uid://rg4so63ci6pk"
+path="res://.godot/imported/Scythe.png-bf5fcf38dbce5e732e18e7815156da5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/White_Room/Grey_Room.png"
-dest_files=["res://.godot/imported/Grey_Room.png-5b194b000c1514606306f1f65ac47e4f.ctex"]
+source_file="res://assets/Weapon/Scythe.png"
+dest_files=["res://.godot/imported/Scythe.png-bf5fcf38dbce5e732e18e7815156da5b.ctex"]
 
 [params]
 
