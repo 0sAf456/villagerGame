@@ -1,10 +1,15 @@
 extends CharacterBody2D
 
+class_name Player
+signal healthChange
 @export
 var Max_Speed = 60
 @export
 var Acceleration = 20
-var Health = 10
+
+@export var maxHealth = 30
+@export var CurrentHealth: int = maxHealth
+
 var mouse_position
 
 @onready var player_animation = $AnimatedSprite2D
@@ -15,7 +20,7 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
-	print("X: ", velocity.x, " | Y: ", velocity.y, " | Velocity length: ", velocity.length())
+	#print("X: ", velocity.x, " | Y: ", velocity.y, " | Velocity length: ", velocity.length())
 	if velocity.length() == 0:
 		player_animation.play("idle")
 	if velocity.x > 1:
