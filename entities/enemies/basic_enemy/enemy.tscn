@@ -105,7 +105,7 @@ size = Vector2(11, 14)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 3
 script = ExtResource("1_fhgui")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -122,11 +122,13 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_74u12")
 
+[node name="RayCast2D" type="RayCast2D" parent="detection_area"]
+target_position = Vector2(0, 59)
+
 [node name="hitBox" type="Area2D" parent="."]
-collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
 position = Vector2(-0.5, 0)
