@@ -9,36 +9,32 @@ var health = 30
 
 
 func _physics_process(delta: float) -> void:
-	if chasing:
-		if player != null:
+	if chasing && player!= null	:
 			# Move towards the player
 			var direction: Vector2 = (player.position - position)
-			if direction.length() > 0.1:
-				direction = direction.normalized()
-			else :
-				direction = -direction.normalized()
-			velocity = direction * speed
+			raycast2D.target_position = direction
 			
-
-			# Update the RayCast2D direction to point towards the player
-			raycast2D.target_position = direction * 50  # Adjust the multiplier as needed
-
-			# Check if the raycast is colliding with something
 			if raycast2D.is_colliding():
 				var collider: Object = raycast2D.get_collider()
 				if collider == player:
-					# Do something if the raycast hits the player
-					move_and_slide()
+					
+					if direction.length() > 10:
+						direction = direction.normalized()
+						velocity = direction * speed
+						
+					else :
+						direction = -(direction.normalized())
+						velocity = Vector2.ZERO
+						
+					var collision = move_and_collide(delta * velocity)
+					if collision:
+						velocity = Vector2.ZERO					
 		
 		
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	player = body
 	chasing = true
-			
-			
-	
-
 func handle_hit(damage: int):
 	health -= damage
 	print("enemy was hit, current health: " + str(health))

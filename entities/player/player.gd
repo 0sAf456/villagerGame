@@ -48,3 +48,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.name == "hitBox":
 		print_debug(area.get_parent().name)
+		
+		take_damage(0)
+		
+func take_damage(damage: int):
+	CurrentHealth -= damage
+	if CurrentHealth == 0:
+		die()
+func die():
+	queue_free()
