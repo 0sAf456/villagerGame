@@ -12,7 +12,11 @@ func _physics_process(delta: float) -> void:
 	if chasing:
 		if player != null:
 			# Move towards the player
-			var direction: Vector2 = (player.position - position).normalized()
+			var direction: Vector2 = (player.position - position)
+			if direction.length() > 0.1:
+				direction = direction.normalized()
+			else :
+				direction = -direction.normalized()
 			velocity = direction * speed
 			
 
