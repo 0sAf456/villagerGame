@@ -158,8 +158,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
-size = Vector2(8, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bls4j"]
+radius = 4.0
+height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bls4j"]
 size = Vector2(8, 16)
@@ -175,7 +176,7 @@ frame_progress = 0.0800097
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
-shape = SubResource("RectangleShape2D_abrql")
+shape = SubResource("CapsuleShape2D_bls4j")
 
 [node name="Weapon" parent="." instance=ExtResource("4_bls4j")]
 position = Vector2(4, -1)

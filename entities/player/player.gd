@@ -28,11 +28,13 @@ func _physics_process(delta):
 		weapon.position.x = abs(weapon.position.x) #flips weapon sprite when facing right
 		player_hitbox.position.x = -abs(player_hitbox.position.x) #flips hitbox right
 		player_animation.play("run")
+		weapon.scale.x = 1
 	if velocity.x < -1:
 		player_animation.flip_h = true #flips player sprite to the left
 		weapon.position.x = -abs(weapon.position.x) #flips weapon sprite when facing left
 		player_hitbox.position.x = abs(player_hitbox.position.x) #flips hitbox left
 		player_animation.play("run")
+		weapon.scale.x = -1
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -48,3 +50,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.name == "hitBox":
 		print_debug(area.get_parent().name)
+		
+		take_damage(0)
+		
+func take_damage(damage: int):
+	CurrentHealth -= damage
+	if CurrentHealth == 0:
+		die()
+func die():
+	queue_free()
