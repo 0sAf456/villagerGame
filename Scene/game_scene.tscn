@@ -54,7 +54,7 @@ texture = ExtResource("1_edujn")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_f38sd")
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="Room" type="TileMapLayer" parent="."]
 position = Vector2(-30, -21)
@@ -72,6 +72,7 @@ collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-3, 9)
+scale = Vector2(0.706425, 1.04529)
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 

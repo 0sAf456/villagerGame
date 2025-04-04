@@ -26,11 +26,13 @@ func _physics_process(delta):
 	if velocity.x > 1:
 		player_animation.flip_h = false #flips player sprite to the right
 		weapon.position.x = abs(weapon.position.x) #flips weapon sprite when facing right
+		weapon.scale.x = 1 # ensure that the weapon is swings right
 		player_hitbox.position.x = -abs(player_hitbox.position.x) #flips hitbox right
 		player_animation.play("run")
 	if velocity.x < -1:
 		player_animation.flip_h = true #flips player sprite to the left
 		weapon.position.x = -abs(weapon.position.x) #flips weapon sprite when facing left
+		weapon.scale.x = -1 # flip weapon horizontally to match the player turning left
 		player_hitbox.position.x = abs(player_hitbox.position.x) #flips hitbox left
 		player_animation.play("run")
 
